@@ -1,11 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi primera web</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Dashboard AI</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  header {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
+  header nav a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .card h2 {
+    margin-top: 0;
+  }
+
+  button {
+    background-color: #4da6ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #3399ff;
+  }
+
+</style>
 </head>
 <body>
-  <h1>Welcome To Angxl Server</h1>
-  <p>This website is in progress👺</p>
+
+<header>
+  <h1>Mi Dashboard AI</h1>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Perfil</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Generador de imágenes</h2>
+    <p>Sube tus prompts y genera imágenes con AI.</p>
+    <button>Probar</button>
+  </div>
+
+  <div class="card">
+    <h2>Chat AI</h2>
+    <p>Habla con tu asistente inteligente en tiempo real.</p>
+    <button>Iniciar</button>
+  </div>
+
+  <div class="card">
+    <h2>Historial</h2>
+    <p>Revisa tus últimas creaciones y conversaciones.</p>
+    <button>Ver</button>
+  </div>
+</main>
+
 </body>
 </html>
