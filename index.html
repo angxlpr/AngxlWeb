@@ -1,55 +1,72 @@
-<link rel="stylesheet" href="style.css">
+<div class="main-content">
+  <header>
+    <div class="logo">Angxl Server</div>
+    <div class="right-buttons">
+      <button id="search-btn">🔍</button>
+      <button id="account-btn">Cuenta</button>
+      <button id="settings-btn">Configuración</button>
+    </div>
+  </header>
 
-<header>
-  <div class="menu-btn" id="menu-btn">
-    <span></span>
-    <span></span>
-    <span></span>
+  <!-- Modal de Configuración -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <h2>Configuración</h2>
+      <p>Contacto: <a href="https://instagram.com/aelx_axz" target="_blank">@aelx_axz</a></p>
+      <button>Cambiar tema</button>
+      <button>Notificaciones</button>
+      <button id="settings-close">Cerrar</button>
+    </div>
   </div>
 
-  <div class="logo">Angxl Server</div>
-
-  <div class="right-buttons">
-    <button id="search-btn">🔍</button>
-    <button id="account-btn">Cuenta</button>
-    <button id="settings-btn">Configuración</button>
-  </div>
-</header>
-
-<main>
-  <p>Bienvenido a Angxl Server</p>
-</main>
-
-<!-- Modal Configuración -->
-<div id="settings-modal">
-  <div class="modal-content">
-    <h2>Configuración</h2>
-    <p>Contacto: <a href="https://instagram.com/aelx_axz" target="_blank">@aelx_axz</a></p>
-    <button>Cambiar tema</button>
-    <button>Notificaciones</button>
-    <button id="settings-close">Cerrar</button>
+  <!-- Modal de Cuenta -->
+  <div id="account-modal" class="modal">
+    <div class="modal-content">
+      <h2>Iniciar Sesión</h2>
+      <input type="text" placeholder="Usuario" style="width:100%; padding:8px; margin:5px 0; border-radius:5px; border:none;">
+      <input type="password" placeholder="Contraseña" style="width:100%; padding:8px; margin:5px 0; border-radius:5px; border:none;">
+      <button style="margin-top:10px;">Entrar</button>
+      <button id="account-close" style="background:#444; color:#fff; margin-top:10px;">Cerrar</button>
+    </div>
   </div>
 </div>
 
 <script>
-const settingsBtn = document.getElementById('settings-btn');
-const settingsModal = document.getElementById('settings-modal');
-const settingsClose = document.getElementById('settings-close');
+  // Modal de Configuración
+  const settingsBtn = document.getElementById('settings-btn');
+  const settingsModal = document.getElementById('settings-modal');
+  const settingsClose = document.getElementById('settings-close');
 
-// Abrir modal
-settingsBtn.addEventListener('click', () => {
-  settingsModal.classList.add('active');
-});
+  settingsBtn.addEventListener('click', () => {
+    settingsModal.classList.add('active');
+  });
 
-// Cerrar modal
-settingsClose.addEventListener('click', () => {
-  settingsModal.classList.remove('active');
-});
-
-// Cerrar al hacer clic fuera
-window.addEventListener('click', (e) => {
-  if (e.target === settingsModal) {
+  settingsClose.addEventListener('click', () => {
     settingsModal.classList.remove('active');
-  }
-});
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === settingsModal) {
+      settingsModal.classList.remove('active');
+    }
+  });
+
+  // Modal de Cuenta
+  const accountBtn = document.getElementById('account-btn');
+  const accountModal = document.getElementById('account-modal');
+  const accountClose = document.getElementById('account-close');
+
+  accountBtn.addEventListener('click', () => {
+    accountModal.classList.add('active');
+  });
+
+  accountClose.addEventListener('click', () => {
+    accountModal.classList.remove('active');
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === accountModal) {
+      accountModal.classList.remove('active');
+    }
+  });
 </script>
