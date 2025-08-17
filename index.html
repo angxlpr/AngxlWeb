@@ -10,29 +10,30 @@
     font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: #fff;
+    overflow-x: hidden;
+    position: relative;
   }
 
-  /* Header estilo barra superior */
+  /* Header */
   header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     background-color: #000;
     padding: 10px 20px;
     position: relative;
+    z-index: 100;
   }
 
-  /* Logo centrado */
   .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    color: #ff9900;
   }
 
-  /* Botones lado derecho */
   .right-buttons {
     display: flex;
     align-items: center;
@@ -53,48 +54,72 @@
     background-color: #444;
   }
 
-  /* Menu hamburguesa */
-  .menu-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 18px;
+  /* Modal login */
+  #login-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s forwards;
+  }
+
+  #login-modal .modal-content {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 300px;
+    transform: translateY(-50px);
+    animation: slideIn 0.5s forwards;
+  }
+
+  #login-modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+  }
+
+  #login-modal button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
 
-  .menu-btn span {
-    display: block;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: all 0.3s;
+  #login-submit {
+    background: #ff9900;
+    color: #121212;
   }
 
-  /* Menu desplegable */
-  .menu {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 10px;
-    background-color: #111;
-    padding: 10px 0;
-    border-radius: 5px;
-    min-width: 150px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    z-index: 10;
-  }
-
-  .menu a {
-    display: block;
-    padding: 10px 20px;
+  #login-close {
+    background: #444;
     color: #fff;
-    text-decoration: none;
-    transition: background 0.3s;
   }
 
-  .menu a:hover {
-    background-color: #222;
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+
+  @keyframes slideIn {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+  }
+
+  @keyframes slideOut {
+    from {transform: translateY(0);}
+    to {transform: translateY(-50px);}
   }
 
   main {
@@ -102,52 +127,90 @@
     text-align: center;
   }
 
+  /* Nuvecitas */
+  .cloud {
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: moveClouds linear infinite;
+  }
+
+  .cloud::before,
+  .cloud::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .cloud::before {
+    top: -15px;
+    left: 10px;
+  }
+
+  .cloud::after {
+    top: -10px;
+    right: 10px;
+  }
+
+  @keyframes moveClouds {
+    from {transform: translateX(-100px);}
+    to {transform: translateX(110vw);}
+  }
+
 </style>
 </head>
 <body>
 
 <header>
-  <!-- Botón hamburguesa -->
-  <div class="menu-btn" id="menu-btn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Logo centrado -->
   <div class="logo">Angxl Server</div>
-
-  <!-- Botones lado derecho -->
   <div class="right-buttons">
-    <button>🔍</button>
-    <button>Cuenta</button>
-  </div>
-
-  <!-- Menu desplegable -->
-  <div class="menu" id="menu">
-    <a href="#">Configuración</a>
-    <a href="#">Comunidad</a>
-    <a href="#">Blog</a>
-    <a href="#">Compras</a>
+    <button id="search-btn">🔍</button>
+    <button id="account-btn">Cuenta</button>
   </div>
 </header>
+
+<!-- Modal Login -->
+<div id="login-modal">
+  <div class="modal-content">
+    <h2>Iniciar sesión</h2>
+    <input type="text" placeholder="Usuario">
+    <input type="password" placeholder="Contraseña">
+    <button id="login-submit">Entrar</button>
+    <button id="login-close">Cerrar</button>
+  </div>
+</div>
 
 <main>
   <p>Bienvenido a Angxl Server</p>
 </main>
 
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const menu = document.getElementById('menu');
+<!-- Nuvecitas -->
+<div class="cloud" style="top:50px; animation-duration: 60s;"></div>
+<div class="cloud" style="top:120px; animation-duration: 80s;"></div>
+<div class="cloud" style="top:200px; animation-duration: 100s;"></div>
 
-  menuBtn.addEventListener('click', () => {
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+<script>
+  const accountBtn = document.getElementById('account-btn');
+  const loginModal = document.getElementById('login-modal');
+  const loginClose = document.getElementById('login-close');
+
+  accountBtn.addEventListener('click', () => {
+    loginModal.style.display = 'flex';
   });
 
-  // Cerrar menu al hacer clic fuera
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
-      menu.style.display = 'none';
+  loginClose.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+      loginModal.style.display = 'none';
     }
   });
 </script>
