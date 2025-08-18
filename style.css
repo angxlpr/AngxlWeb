@@ -3,9 +3,10 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url('https://million-wallpapers.ru/wallpapers/5/16/435380833222559/fondo-de-pantalla-gris-en-el-escritorio.jpg');
-  background-size: cover;
+  background-image: url('fondo.jpg');
+  background-size: cover;  
   background-position: center;
+  background-repeat: no-repeat;  
   color: #fff;
 }
 
