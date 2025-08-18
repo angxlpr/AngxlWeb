@@ -50,6 +50,14 @@ header .right-buttons button:hover {
   transform: translateY(-2px);
 }
 
+header .right-buttons img {
+  width: 32px;      /* tamaño del avatar */
+  height: 32px;
+  border-radius: 50%; /* lo hace redondo */
+  margin-left: 8px;   /* espacio entre el botón y la imagen */
+  vertical-align: middle;
+}
+
 /* Modales */
 .modal {
   display: none;
@@ -134,3 +142,4 @@ header .right-buttons button:hover {
   padding: 50px 20px;
   color: #fff;
 }
+

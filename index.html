@@ -14,7 +14,10 @@
   <div class="logo">Angxl Server</div>
   <div class="right-buttons">
     <button id="search-btn">🔍</button>
-    <button id="account-btn">Cuenta</button>
+    <div class="account-wrapper">
+      <button id="account-btn">Cuenta</button>
+      <img src="admin.png" alt="Perfil" class="profile-pic">
+    </div>
     <button id="settings-btn">Configuración</button>
   </div>
 </header>
@@ -86,6 +89,43 @@
       accountModal.classList.remove('active'); 
     } 
   });
+</script>
+
+<script>
+const accountBtn = document.getElementById('account-btn');
+const accountModal = document.getElementById('account-modal');
+const accountClose = document.getElementById('account-close');
+const loginBtn = document.querySelector('#account-modal .orange-btn'); // el botón Entrar
+const usernameInput = document.querySelector('#account-modal input[type="text"]');
+const passwordInput = document.querySelector('#account-modal input[type="password"]');
+
+accountBtn.addEventListener('click', () => {
+  accountModal.classList.add('active');
+});
+
+accountClose.addEventListener('click', () => {
+  accountModal.classList.remove('active');
+});
+
+window.addEventListener('click', (e) => {
+  if(e.target === accountModal){
+    accountModal.classList.remove('active');
+  }
+});
+
+// Función de login local
+loginBtn.addEventListener('click', () => {
+  const user = usernameInput.value.trim();
+  const pass = passwordInput.value.trim();
+
+  // Solo ejemplo, usuario: admin, contraseña: 1234
+  if(user === "admin" && pass === "1234") {
+    alert("¡Bienvenido, " + user + "!");
+    accountModal.classList.remove('active');
+  } else {
+    alert("Usuario o contraseña incorrecta");
+  }
+});
 </script>
 
 </body>
