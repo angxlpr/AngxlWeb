@@ -124,3 +124,13 @@ header .right-buttons button:hover {
   from {opacity: 0; transform: translateY(-20px);}
   to {opacity: 1; transform: translateY(0);}
 }
+
+/* Sección inferior */
+.bottom-content {
+  background-image: url('fondo-inferior.jpg'); /* tu nueva imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 20px;
+  color: #fff;
+}
