@@ -43,21 +43,43 @@
 </div>
 
 <script>
+  // Modal de Configuración
   const settingsBtn = document.getElementById('settings-btn');
   const settingsModal = document.getElementById('settings-modal');
   const settingsClose = document.getElementById('settings-close');
 
-  settingsBtn.addEventListener('click', () => { settingsModal.classList.add('active'); });
-  settingsClose.addEventListener('click', () => { settingsModal.classList.remove('active'); });
-  window.addEventListener('click', (e) => { if(e.target===settingsModal){settingsModal.classList.remove('active');} });
+  settingsBtn.addEventListener('click', () => { 
+    settingsModal.classList.add('active'); 
+  });
 
+  settingsClose.addEventListener('click', () => { 
+    settingsModal.classList.remove('active'); 
+  });
+
+  window.addEventListener('click', (e) => { 
+    if(e.target === settingsModal){ 
+      settingsModal.classList.remove('active'); 
+    } 
+  });
+
+  // Modal de Cuenta
   const accountBtn = document.getElementById('account-btn');
   const accountModal = document.getElementById('account-modal');
   const accountClose = document.getElementById('account-close');
 
-  accountBtn.addEventListener('click', () => { accountModal.classList.add('active'); });
-  accountClose.addEventListener('click', () => { accountModal.classList.remove('active'); });
-  window.addEventListener('click', (e) => { if(e.target===accountModal){accountModal.classList.remove('active');} });
+  accountBtn.addEventListener('click', () => { 
+    accountModal.classList.add('active'); 
+  });
+
+  accountClose.addEventListener('click', () => { 
+    accountModal.classList.remove('active'); 
+  });
+
+  window.addEventListener('click', (e) => { 
+    if(e.target === accountModal){ 
+      accountModal.classList.remove('active'); 
+    } 
+  });
 </script>
 
 </body>
